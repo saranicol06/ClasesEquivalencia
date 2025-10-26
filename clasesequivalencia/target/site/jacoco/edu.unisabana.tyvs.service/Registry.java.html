@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Registry.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">clasesequivalencia</a> &gt; <a href="index.source.html" class="el_package">edu.unisabana.tyvs.service</a> &gt; <span class="el_source">Registry.java</span></div><h1>Registry.java</h1><pre class="source lang-java linenums">package edu.unisabana.tyvs.service;
+
+import edu.unisabana.tyvs.model.*;
+
+import java.util.HashSet;
+import java.util.Set;
+
+<span class="fc" id="L8">public class Registry {</span>
+
+<span class="fc" id="L10">    private final Set&lt;Integer&gt; registeredIds = new HashSet&lt;&gt;();</span>
+    private static final int MIN_AGE = 18;
+    private static final int MAX_AGE = 120;
+
+    public RegisterResult registerVoter(Person p) {
+<span class="pc bpc" id="L15" title="1 of 2 branches missed.">        if (p == null) return RegisterResult.INVALID;</span>
+<span class="pc bpc" id="L16" title="1 of 2 branches missed.">        if (p.getId() &lt;= 0) return RegisterResult.INVALID;</span>
+<span class="fc bfc" id="L17" title="All 2 branches covered.">        if (!p.isAlive()) return RegisterResult.DEAD;</span>
+<span class="pc bpc" id="L18" title="2 of 4 branches missed.">        if (p.getAge() &lt; 0 || p.getAge() &gt; MAX_AGE) return RegisterResult.INVALID_AGE;</span>
+<span class="fc bfc" id="L19" title="All 2 branches covered.">        if (p.getAge() &lt; MIN_AGE) return RegisterResult.UNDERAGE;</span>
+<span class="pc bpc" id="L20" title="1 of 2 branches missed.">        if (registeredIds.contains(p.getId())) return RegisterResult.DUPLICATED;</span>
+<span class="pc bpc" id="L21" title="1 of 2 branches missed.">        if (p.getAge()&lt;18){</span>
+<span class="nc" id="L22">            return RegisterResult.UNDERAGE;</span>
+        }
+
+<span class="fc" id="L25">        registeredIds.add(p.getId());</span>
+<span class="fc" id="L26">        return RegisterResult.VALID;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.10.202304240956</span></div></body></html>
