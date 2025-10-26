@@ -81,6 +81,9 @@ mvn clean test
 Luego abrir el archivo: 
 target/site/jacoco/index.html
 
+<img width="2879" height="565" alt="image" src="https://github.com/user-attachments/assets/01cf60f2-0936-4e87-9d10-5914f7daad93" />
+
+
 ## 7. Conclusiones
 
 - Se aplicaron técnicas de TDD y BDD correctamente.
