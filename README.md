@@ -1,4 +1,4 @@
-# Proyecto: Clases de Equivalencia y Pruebas TDD
+# Clases de Equivalencia y Pruebas TDD
 
 ## Integrantes
 - **Axel Daniel Bedoya**
